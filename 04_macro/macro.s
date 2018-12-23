@@ -17,7 +17,7 @@
 .endm
 
 .macro input buffer, length
-    /* Use syscall in order to read from console        */
+    /* Use syscall in order to read from console	*/
     movl  	$3,		%eax	/* sys read 	*/
     movl  	$1, 		%ebx	/* fd		*/
     movl  	\buffer, 	%ecx	/* buffer	*/
