@@ -16,10 +16,10 @@ _start:
     int   	$0x80			/* syscall	*/
 
     /* Read input and store 				*/
-    movl	$3,		%eax
-    movl	$1, 		%ebx
-    movl	$num,		%ecx
-    movl	$5,		%edx
+    movl	$3,		%eax	/* sys read	*/
+    movl	$1, 		%ebx	/* fd		*/
+    movl	$num,		%ecx	/* buffer	*/
+    movl	$5,		%edx	/* count	*/
     int		$0x80
 
     /* Write output message 				*/
