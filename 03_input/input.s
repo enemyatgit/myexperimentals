@@ -1,7 +1,6 @@
 /*
- *    Second assembly program
  *    This program uses Linux syscall
- *    in order to write a string to the console
+ *    in order to read/write a string to the console
  */
 
 .global	_start
@@ -45,7 +44,7 @@ _start:
 msg_get:
     .ascii  			"Please enter a number:"
     len_get =  			. - msg_get		/* Symbol "." refers to the current address 
-			         			 * Therefore len = current address - start of msg */
+							 * Therefore len = current address - start of msg */
 
 msg_put:
     .ascii 			"You have entered:"
