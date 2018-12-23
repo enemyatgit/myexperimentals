@@ -1,0 +1,4 @@
+as input.s -o input.o
+ld -s -o input input.o
+./input
+echo Error code: $?
