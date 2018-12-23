@@ -1,0 +1,4 @@
+as macro.s -o macro.o
+ld -s -o macro macro.o
+./macro
+echo Error code: $?
