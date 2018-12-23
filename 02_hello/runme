@@ -1,0 +1,4 @@
+as hw.s -o hw.o
+ld -s -o hw hw.o
+./hw
+echo Error code: $?
