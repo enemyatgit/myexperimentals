@@ -14,6 +14,12 @@ _start:
     movl  	$len, %edx	/* count	*/
     int   	$0x80		/* syscall	*/
 
+    movl  	$4, %eax	/* sys write 	*/
+    movl  	$1, %ebx	/* fd		*/
+    movl  	$msg1, %ecx	/* buffer	*/
+    movl  	$len1, %edx	/* count	*/
+    int   	$0x80		/* syscall	*/
+
     movl  	$1, %eax	/* sys_exit	*/
     movl  	$0, %ebx	/* error_code	*/
     int   	$0x80		/* syscall	*/
@@ -23,3 +29,7 @@ msg:
     .ascii  	"Hello, world!\n"
     len =   	. - msg		/* Symbol "." refers to the current address 
 			         * Therefore len = current address - start of msg */
+
+msg1:
+    .ascii 	"This is the second line\n"
+    len1 =	. - msg1
