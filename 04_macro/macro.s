@@ -17,7 +17,7 @@
 .endm
 
 .macro input buffer, length
-    movl  	$3,		%eax	/* sys write 	*/
+    movl  	$3,		%eax	/* sys read 	*/
     movl  	$1, 		%ebx	/* fd		*/
     movl  	\buffer, 	%ecx	/* buffer	*/
     movl  	\length, 	%edx	/* count	*/
