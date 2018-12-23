@@ -8,7 +8,7 @@
 .text
 
 .macro print buffer, length
-    /* Write user prompt 				*/
+    /* Use syscall in order to write to the console	*/
     movl  	$4,		%eax	/* sys write 	*/
     movl  	$1, 		%ebx	/* fd		*/
     movl  	\buffer, 	%ecx	/* buffer	*/
@@ -17,6 +17,7 @@
 .endm
 
 .macro input buffer, length
+    /* Use syscall in order to read from console        */
     movl  	$3,		%eax	/* sys read 	*/
     movl  	$1, 		%ebx	/* fd		*/
     movl  	\buffer, 	%ecx	/* buffer	*/
