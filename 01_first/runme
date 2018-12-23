@@ -1,0 +1,4 @@
+as first.s -o first.o
+ld -s -o first first.o
+./first
+echo Error code: $?
