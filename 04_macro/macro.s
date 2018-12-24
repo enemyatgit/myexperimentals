@@ -19,7 +19,7 @@
 .macro input buffer, length
     /* Use syscall in order to read from console    */
     movl    $3,         %eax    /* sys read         */
-    movl    $1,         %ebx    /* fd               */
+    movl    $0,         %ebx    /* fd               */
     movl    \buffer,    %ecx    /* buffer           */
     movl    \length,    %edx    /* count            */
     int     $0x80               /* syscall          */
@@ -38,6 +38,9 @@ _start:
     /* Write the stored number                      */
     print   $num,       $5
 
+    /* Reset color                                  */
+    print   $msg_reset, $len_reset
+
     /* Exit                                         */
     movl    $1,         %eax    /* sys_exit         */
     movl    $0,         %ebx    /* error_code       */
@@ -45,13 +48,17 @@ _start:
 
 .data
 msg_get:
-    .ascii              "Please enter a number:"
+    .string              "\033[31m Please enter a number:"
     len_get =           . - msg_get /* Symbol "." refers to the current address
                                      * Therefore len = current address - start of msg */
 
 msg_put:
     .ascii              "You have entered:"
     len_put =           . - msg_put
+
+msg_reset:
+    .ascii              "\033[0m"
+    len_reset =         . - msg_reset
 
 .bss
     .lcomm  num,        5           /* Reserve 5 byte buffer at local common section */
