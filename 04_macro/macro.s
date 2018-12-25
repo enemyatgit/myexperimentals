@@ -3,7 +3,7 @@
  *    in order to read/write a string to the console
  */
 
-.global	_start
+.globl	_start
 
 .text
 

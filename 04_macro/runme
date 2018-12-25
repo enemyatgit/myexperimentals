@@ -1,4 +1,5 @@
-as macro.s -o macro.o
+as -ggdb macro.s -o macro.o
 ld -s -o macro macro.o
 ./macro
 echo Error code: $?
+read -p "Press enter to continue"
